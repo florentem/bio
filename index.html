@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Florentem Links</title>
+    <title>Bio</title>
     <style>
         body {
             margin: 0;
@@ -27,7 +27,7 @@
             font-size: 2em;
         }
 
-        .links {
+        .bio {
             text-align: center;
             margin-top: 50px;
         }
@@ -59,26 +59,32 @@
 <body>
 
     <header>
-        <h1>Links</h1>
+        <h1>Bio</h1>
     </header>
 
-    <div class="links">
-        <button onclick="window.location.href='https://t.me/coowersyy'">Telegram</button>
-        <button onclick="window.location.href='https://www.twitch.tv/florentem_'">Twitch</button>
-        <button onclick="copyToClipboard('нось#4004')">Discord</button>
-        <button onclick="window.location.href='https://www.donationalerts.com/r/florentem'">Donate</button>
+    <div class="bio">
+        <p>Name: Florentem (Vanya)</p>
+        <p>Age: Calculated based on birthdate (25-11-2007)</p>
+        <p>Timezone: UTC+6</p>
     </div>
 
     <script>
-        function copyToClipboard(text) {
-            const tempInput = document.createElement('input');
-            tempInput.value = text;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
-            alert('Copied to clipboard: ' + text);
+        function calculateAge(birthdate) {
+            const birthdateObj = new Date(birthdate);
+            const today = new Date();
+            let age = today.getFullYear() - birthdateObj.getFullYear();
+            const monthDiff = today.getMonth() - birthdateObj.getMonth();
+
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthdateObj.getDate())) {
+                age--;
+            }
+
+            return age;
         }
+
+        const birthdate = '2007-11-25';
+        const age = calculateAge(birthdate);
+        document.querySelector('.bio p:nth-child(2)').textContent = `Age: ${age} years`;
     </script>
 </body>
 
