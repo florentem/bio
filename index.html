@@ -31,6 +31,19 @@
             text-align: center;
             margin-top: 50px;
         }
+        .home-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #333;
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+            font-size: 1em;  /* Adjusted size */
+            border: 2px solid #111;
+            border-radius: 5px;  /* Adjusted border-radius */
+            cursor: pointer;
+        }
 
         button {
             background-color: #333;
@@ -85,6 +98,10 @@
         const birthdate = '2007-11-25';
         const age = calculateAge(birthdate);
         document.querySelector('.bio p:nth-child(2)').textContent = `Age: ${age} years`;
+        
+        document.querySelector('.home-button').addEventListener('click', function() {
+            window.location.href = 'https://florentem.github.io';
+        });
     </script>
 </body>
 
